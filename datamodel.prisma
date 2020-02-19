@@ -11,6 +11,7 @@ type User {
   likes: [Like!]!
   comments: [Comment!]!
   chats: [Chat!]!
+  loginSecret: String
 }
 
 type Post {
