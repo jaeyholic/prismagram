@@ -1,14 +1,22 @@
-import env from './env';
+import './env';
 import { GraphQLServer } from 'graphql-yoga';
 import logger from 'morgan';
+import passport from 'passport';
 
 import schema from './schema';
 import { sendSecretMail } from './utils/helpers';
+import { authenticateJWT } from './passport';
 
 const PORT = process.env.PORT || 4000;
 
-const server = new GraphQLServer({ schema });
+const server = new GraphQLServer({
+  schema,
+  context: ({ request }) => ({ request })
+});
+
+//middleware
 server.express.use(logger('dev'));
+server.express.use(authenticateJWT);
 
 server.start({ port: PORT }, () =>
   console.log(`Server running on http://localhost:${PORT}`)

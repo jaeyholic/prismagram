@@ -1,4 +1,7 @@
-import { secretGenerator } from '../../../utils/helpers';
+import {
+  secretGenerator,
+  sendSecretMail
+} from '../../../utils/helpers';
 import { prisma } from '../../../../generated/prisma-client';
 
 export default {
@@ -7,6 +10,7 @@ export default {
       const { email } = args;
       const secret = secretGenerator();
       try {
+        await sendSecretMail(email, secret);
         await prisma.updateUser({
           data: { loginSecret: secret },
           where: { email }

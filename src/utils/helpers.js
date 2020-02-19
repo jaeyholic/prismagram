@@ -1,6 +1,6 @@
-import env from '../env';
 import nodemailer from 'nodemailer';
 import sendGridTransport from 'nodemailer-sendgrid-transport';
+import jsonwebtoken from 'jsonwebtoken';
 import { adj, noun } from '../words';
 
 export const secretGenerator = () => {
@@ -32,3 +32,6 @@ export const sendSecretMail = (address, secret) => {
   };
   return sendMail(email);
 };
+
+export const generateToken = id =>
+  jsonwebtoken.sign({ id }, process.env.SECRET);
