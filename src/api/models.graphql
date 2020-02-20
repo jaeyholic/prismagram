@@ -9,6 +9,7 @@ type User {
   follows: Boolean!
   following: [User!]!
   followers: [User!]!
+  myProfile: Boolean!
   posts: [Post!]!
   likes: [Like!]!
   comments: [Comment!]!
