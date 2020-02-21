@@ -1,4 +1,4 @@
-# prismagram
+# prismagram-server
 
 Instagram Clone with Express + Prisma + React + React Native
 
@@ -23,5 +23,5 @@ Instagram Clone with Express + Prisma + React + React Native
 - [x] See feeds
 - [x] Get Chats
 - [x] Get A Chat
-- [ ] Send Private Messages
-- [ ] Receive Private Messages
+- [x] Send Private Messages
+- [x] Receive Private Messages
