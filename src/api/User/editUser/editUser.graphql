@@ -4,6 +4,7 @@ type Mutation {
     email: String
     lastName: String
     username: String
+    avatar: String
     bio: String
   ): User!
 }

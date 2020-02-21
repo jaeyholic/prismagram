@@ -1,0 +1,3 @@
+type Query {
+  singleChat(id: String!): Chat!
+}
